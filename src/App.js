@@ -14,7 +14,10 @@ const App = () => {
     setLongitude(data["iss_position"]["longitude"])
   }
 
-  getCoordinates()
+  useEffect(()=>{
+    getCoordinates()
+  }, [])
+ 
 
   return (
     <div>
