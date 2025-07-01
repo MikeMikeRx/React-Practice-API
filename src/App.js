@@ -13,7 +13,9 @@ const App = () => {
     // console.log(data["iss_position"]["longitude"])
     setLatitude(data["iss_position"]["latitude"])
     setLongitude(data["iss_position"]["longitude"])
-    setUrlMap("https://www.google.com/maps/@53.3150024,-1.3398423,7.46z?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D")
+    const iss_lat = (data["iss_position"]["latitude"])
+    const iss_long = (data["iss_position"]["longitude"])    
+    setUrlMap(`https://www.google.com/maps/@53.3150024,-1.3398423,7.46z?entry=ttu&g_ep=EgoyMDI1MDYyNi4wIKXMDSoASAFQAw%3D%3D`)
   }
 
   useEffect(()=>{
