@@ -1,18 +1,25 @@
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 const App = () => {
   const [quote, setQuote] = useState ("default Text")
   
   const url = "https://api.kanye.rest/"
 
+  useEffect(()=>{
+  },[])
+
   const getQuote = async () =>{
     const response = await fetch(url)
     const data = await response.json()
     const finalQuote = data["quote"]
-    //setQuote(finalQuote) 
+    setQuote(finalQuote)
   }
+
+  useEffect(()=>{
+    getQuote()
+  },[]) //<--- Prevent refreshing 
   
-  getQuote()
+  
   
   return (
     <div>
