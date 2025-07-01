@@ -1,1 +1,1 @@
-App shows random quotes of Kanye West <br>
+loading - Use multiple returns for loading and content display
