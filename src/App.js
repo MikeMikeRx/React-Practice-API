@@ -1,16 +1,23 @@
+import { useState } from "react"
+
 const App = () => {
-  const url = "https://api.kanye.rest/"
+  const [quote, setQuote] = useState ("default Text")
   
+  const url = "https://api.kanye.rest/"
+
   const getQuote = async () =>{
     const response = await fetch(url)
     const data = await response.json()
-    console.log(data["quote"])
+    const finalQuote = data["quote"]
+    //setQuote(finalQuote) 
   }
   
   getQuote()
   
   return (
-   <h1>Nothing</h1> 
+    <div>
+      <h1>{quote}</h1>
+   </div> 
   )
 }
 
