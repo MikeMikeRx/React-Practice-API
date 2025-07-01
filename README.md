@@ -1,1 +1,2 @@
-App shows random quotes of Kanye West <br>
+ISS - (International Space Station) app displaying the ISS position in real time
+
