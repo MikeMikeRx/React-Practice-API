@@ -1,32 +1,27 @@
 import { useState, useEffect } from "react"
+const url = "http://api.open-notify.org/iss-now.json"
+
 
 const App = () => {
-  const [quote, setQuote] = useState ("default Text")
-  
-  const url = "https://api.kanye.rest/"
+  const [loading, setLoading] = useState(true)
 
   useEffect(()=>{
+    fetch(url)
+      .then( (response) => response.json() )
+      .then( (data) => data["iss_position"] )
+      .then( (position) => {
+                console.log(position["latitude"])
+                console.log(position["longitude"])
+      })
   },[])
 
-  const getQuote = async () =>{
-    const response = await fetch(url)
-    const data = await response.json()
-    const finalQuote = data["quote"]
-    setQuote(finalQuote)
+
+  if (loading){
+    return <h2>Loading ....</h2>
+  } else {
+    return <h2>Website content</h2>
   }
-
-  useEffect(()=>{
-    getQuote()
-  },[]) //<--- Prevent refreshing 
   
-  
-  
-  return (
-    <div>
-      <h1>{quote}</h1>
-   </div> 
-  )
 }
-
 
 export default App
